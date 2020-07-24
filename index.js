@@ -6,7 +6,8 @@ database.loadDatabase();
 const fetch = require('node-fetch'); // library that gives us the web server function fetch
 require('dotenv').config(); // env files can now be used to store environment variables
 
-app.listen(3000, () => console.log('Listening at port 3000'));
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Listening at port ${port}`));
 
 app.use(express.static('public'));
 app.use(express.json({ limit: '1mb' })); //important json body parse!!!
